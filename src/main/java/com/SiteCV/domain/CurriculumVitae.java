@@ -1,13 +1,9 @@
 package com.SiteCV.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class CurriculumVitae {
@@ -15,36 +11,18 @@ public class CurriculumVitae {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idCurriculumVitae;
-	
+
 	private String divers;
 
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="Formation", referencedColumnName="idFormation")
-	private Formation formation;
+	private int idFormation;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="Expertise", referencedColumnName="idExpertise")
-	private Expertise expertise;
-	
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="Langue", referencedColumnName="idLangue")
-	private Langue langue;
-	
-	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="User", referencedColumnName="idUser")
-	private User user;
-	
-	public CurriculumVitae(){	
-	}
-	
-	public CurriculumVitae(int idCurriculumVitae, String divers, Formation formation, Expertise expertise,
-			Langue langue) {
-		super();
-		this.idCurriculumVitae = idCurriculumVitae;
-		this.divers = divers;
-		this.formation = formation;
-		this.expertise = expertise;
-		this.langue = langue;
+	private int  idExpertise;
+
+	private int idLangue;
+
+	private int idUser;
+
+	public CurriculumVitae() {
 	}
 
 	public int getIdCurriculumVitae() {
@@ -63,28 +41,37 @@ public class CurriculumVitae {
 		this.divers = divers;
 	}
 
-	public Formation getFormation() {
-		return formation;
+	public int getIdFormation() {
+		return idFormation;
 	}
 
-	public void setFormation(Formation formation) {
-		this.formation = formation;
+	public void setIdFormation(int idFormation) {
+		this.idFormation = idFormation;
 	}
 
-	public Expertise getExpertise() {
-		return expertise;
+	public int getIdExpertise() {
+		return idExpertise;
 	}
 
-	public void setExpertise(Expertise expertise) {
-		this.expertise = expertise;
+	public void setIdExpertise(int idExpertise) {
+		this.idExpertise = idExpertise;
 	}
 
-	public Langue getLangue() {
-		return langue;
+	public int getIdLangue() {
+		return idLangue;
 	}
 
-	public void setLangue(Langue langue) {
-		this.langue = langue;
+	public void setIdLangue(int idLangue) {
+		this.idLangue = idLangue;
 	}
 
+	public int getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
+	}
+
+	
 }

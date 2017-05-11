@@ -3,12 +3,9 @@ package com.SiteCV.domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 
 
 @Entity
@@ -18,9 +15,7 @@ public class Formation {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idFormation;
 
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="CurriculumVitae", referencedColumnName="idCurriculumVitae")
-	private CurriculumVitae cv;
+	private int idCv;
 
 	private Date dateDebut;
 
@@ -34,31 +29,12 @@ public class Formation {
 
 	}
 
-	public Formation(int idFormation, CurriculumVitae cv, Date dateDebut, Date dateFin, String titre,
-			String description) {
-		super();
-		this.idFormation = idFormation;
-		this.cv = cv;
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
-		this.titre = titre;
-		this.description = description;
-	}
-
 	public int getIdFormation() {
 		return idFormation;
 	}
 
 	public void setIdFormation(int idFormation) {
 		this.idFormation = idFormation;
-	}
-
-	public CurriculumVitae getCv() {
-		return cv;
-	}
-
-	public void setCv(CurriculumVitae cv) {
-		this.cv = cv;
 	}
 
 	public Date getDateDebut() {
@@ -93,11 +69,12 @@ public class Formation {
 		this.description = description;
 	}
 
-	@Override
-	public String toString() {
-		return "Formation [getIdFormation()=" + getIdFormation() + ", getCv()=" + getCv() + ", getDateDebut()="
-				+ getDateDebut() + ", getDateFin()=" + getDateFin() + ", getTitre()=" + getTitre()
-				+ ", getDescription()=" + getDescription() + "]";
+	public int getIdCv() {
+		return idCv;
+	}
+
+	public void setIdCv(int idCv) {
+		this.idCv = idCv;
 	}
 
 }
