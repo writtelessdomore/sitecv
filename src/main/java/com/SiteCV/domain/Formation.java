@@ -16,6 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Null;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "formation")
 public class Formation {
@@ -54,6 +56,7 @@ public class Formation {
 		this.idFormation = idFormation;
 	}
 
+	@JsonIgnore
 	public Collection<CurriculumVitae> getIdCv() {
 		return idCv;
 	}
