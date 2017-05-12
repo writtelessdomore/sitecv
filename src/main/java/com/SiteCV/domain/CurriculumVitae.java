@@ -29,27 +29,27 @@ public class CurriculumVitae {
 	@ManyToMany
 	@JoinTable(name = "formation", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_formation", nullable = true))
 	@Null
-	private Collection<Formation> idFormation;
+	private Collection<Formation> Formation;
 
 	@ManyToMany
 	@JoinTable(name = "expertise", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_expertise", nullable = true))
 	@Null
-	private Collection<Expertise> idExpertise;
+	private Collection<Expertise> Expertise;
 
 	@ManyToMany
 	@JoinTable(name = "language", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_language", nullable = true))
 	@Null
-	private Collection<Langue> idLangue;
+	private Collection<Langue> Langue;
 
 	@ManyToMany
 	@JoinTable(name = "user", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_user", nullable = true))
 	@Null
-	private Collection<User> idUser;
-	
+	private Collection<User> User;
+
 	@ManyToMany
 	@JoinTable(name = "experiments", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_experiments", nullable = true))
 	@Null
-	private Collection<User> idExperiments;
+	private Collection<User> xperiments;
 
 	public CurriculumVitae() {
 	}
@@ -70,44 +70,44 @@ public class CurriculumVitae {
 		this.various = divers;
 	}
 
-	public Collection<Formation> getIdFormation() {
-		return idFormation;
+	public Collection<Formation> getFormation() {
+		return Formation;
 	}
 
-	public void setIdFormation(Collection<Formation> idFormation) {
-		this.idFormation = idFormation;
+	public void setFormation(Collection<Formation> formation) {
+		Formation = formation;
 	}
 
-	public Collection<Expertise> getIdExpertise() {
-		return idExpertise;
+	public Collection<Expertise> getExpertise() {
+		return Expertise;
 	}
 
-	public void setIdExpertise(Collection<Expertise> idExpertise) {
-		this.idExpertise = idExpertise;
+	public void setExpertise(Collection<Expertise> expertise) {
+		Expertise = expertise;
 	}
 
-	public Collection<Langue> getIdLangue() {
-		return idLangue;
+	public Collection<Langue> getLangue() {
+		return Langue;
 	}
 
-	public void setIdLangue(Collection<Langue> idLangue) {
-		this.idLangue = idLangue;
+	public void setLangue(Collection<Langue> langue) {
+		Langue = langue;
 	}
 
-	public Collection<User> getIdUser() {
-		return idUser;
+	public Collection<User> getUser() {
+		return User;
 	}
 
-	public void setIdUser(Collection<User> idUser) {
-		this.idUser = idUser;
+	public void setUser(Collection<User> user) {
+		User = user;
 	}
 
-	public Collection<User> getIdExperiments() {
-		return idExperiments;
+	public Collection<User> getXperiments() {
+		return xperiments;
 	}
 
-	public void setIdExperiments(Collection<User> idExperiments) {
-		this.idExperiments = idExperiments;
+	public void setXperiments(Collection<User> xperiments) {
+		this.xperiments = xperiments;
 	}
-	
+
 }
