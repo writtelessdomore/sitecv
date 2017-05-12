@@ -1,26 +1,51 @@
 package com.SiteCV.domain;
 
+import java.util.Collection;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+import javax.persistence.Table;
+import javax.validation.constraints.Null;
+
 
 @Entity
+@Table(name = "curriculum_vitae")
 public class CurriculumVitae {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_curriculum_vitae")
 	private int idCurriculumVitae;
 
+	@Column(name = "divers", nullable = false)
 	private String divers;
 
-	private int idFormation;
-	
-	private int  idExpertise;
+	@ManyToMany
+	@JoinTable(name = "formation", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_formation", nullable = false))
+	@Null
+	private Collection<Formation> idFormation;
 
-	private int idLangue;
+	@ManyToMany
+	@JoinTable(name = "expertise", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_expertise", nullable = false))
+	@Null
+	private Collection<Expertise> idExpertise;
 
-	private int idUser;
+	@ManyToMany
+	@JoinTable(name = "langue", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_langue", nullable = false))
+	@Null
+	private Collection<Langue> idLangue;
+
+	@ManyToMany
+	@JoinTable(name = "user", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_user", nullable = false))
+	@Null
+	private Collection<User> idUser;
 
 	public CurriculumVitae() {
 	}
@@ -41,37 +66,35 @@ public class CurriculumVitae {
 		this.divers = divers;
 	}
 
-	public int getIdFormation() {
+	public Collection<Formation> getIdFormation() {
 		return idFormation;
 	}
 
-	public void setIdFormation(int idFormation) {
+	public void setIdFormation(Collection<Formation> idFormation) {
 		this.idFormation = idFormation;
 	}
 
-	public int getIdExpertise() {
+	public Collection<Expertise> getIdExpertise() {
 		return idExpertise;
 	}
 
-	public void setIdExpertise(int idExpertise) {
+	public void setIdExpertise(Collection<Expertise> idExpertise) {
 		this.idExpertise = idExpertise;
 	}
 
-	public int getIdLangue() {
+	public Collection<Langue> getIdLangue() {
 		return idLangue;
 	}
 
-	public void setIdLangue(int idLangue) {
+	public void setIdLangue(Collection<Langue> idLangue) {
 		this.idLangue = idLangue;
 	}
 
-	public int getIdUser() {
+	public Collection<User> getIdUser() {
 		return idUser;
 	}
 
-	public void setIdUser(int idUser) {
+	public void setIdUser(Collection<User> idUser) {
 		this.idUser = idUser;
 	}
-
-	
 }

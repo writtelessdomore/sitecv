@@ -1,21 +1,38 @@
 package com.SiteCV.domain;
 
+import java.util.Collection;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+import javax.persistence.Table;
+import javax.validation.constraints.Null;
 
 @Entity
+@Table(name = "expertise")
 public class Expertise {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_expertise", nullable = false, unique = true)
 	private int idExpertise;
 
-	private int idCv;
+	@ManyToMany
+	@JoinTable(name = "curriculum_vitae", joinColumns = @JoinColumn(name = "id_expertise", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = false))
+	@Null
+	private Collection<CurriculumVitae> idCv;
 
+	@Column(name = "titre", nullable = false)
 	private String title;
 
+	@Column(name = "corps", nullable = false)
 	private String corps;
 
 	public Expertise() {
@@ -46,11 +63,11 @@ public class Expertise {
 		this.corps = corps;
 	}
 
-	public int getIdCv() {
+	public Collection<CurriculumVitae> getIdCv() {
 		return idCv;
 	}
 
-	public void setIdCv(int idCv) {
+	public void setIdCv(Collection<CurriculumVitae> idCv) {
 		this.idCv = idCv;
 	}
 

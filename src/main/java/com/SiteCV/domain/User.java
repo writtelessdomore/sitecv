@@ -1,27 +1,43 @@
 package com.SiteCV.domain;
 
 import java.sql.Blob;
+import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.Null;
 
 @Entity
+@Table(name = "user")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id_user", nullable = false, unique = true)
 	private int idUser;
 
-	private int idCv;
+	@ManyToMany
+	@JoinTable(name = "curriculum_vitae", joinColumns = @JoinColumn(name = "id_user", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true))
+	@Null
+	private Collection<CurriculumVitae> idCv;
 
+	@Column(name = "nom", nullable = false)
 	private String nom;
 
+	@Column(name = "prenom", nullable = false)
 	private String prenom;
 
+	@Column(name = "type_user", nullable = false)
 	private String typeUser;
 
+	@Column(name = "photo", nullable = false)
 	private Blob photo;
 
 	public User() {
@@ -68,11 +84,11 @@ public class User {
 		this.photo = photo;
 	}
 
-	public int getIdCv() {
+	public Collection<CurriculumVitae> getIdCv() {
 		return idCv;
 	}
 
-	public void setIdCv(int idCv) {
+	public void setIdCv(Collection<CurriculumVitae> idCv) {
 		this.idCv = idCv;
 	}
 
