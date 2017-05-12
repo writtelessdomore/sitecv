@@ -16,50 +16,34 @@ import javax.persistence.Table;
 import javax.validation.constraints.Null;
 
 @Entity
-@Table(name = "langue")
+@Table(name = "language")
 public class Langue {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id_langue", nullable = false, unique = true)
-	private int idLangue;
+	@Column(name = "id_language", nullable = false, unique = true)
+	private int idLanguage;
 
 	@ManyToMany
-	@JoinTable(name = "curriculum_vitae", joinColumns = @JoinColumn(name = "id_langue", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true))
+	@JoinTable(name = "curriculum_vitae", joinColumns = @JoinColumn(name = "id_language", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true))
 	@Null
-	private Collection <CurriculumVitae> idCv;
+	private Collection<CurriculumVitae> idCv;
 
 	@Column(name = "title", nullable = false)
 	private String title;
 
-	@Column(name = "details", nullable = false)
-	private String details;
+	@Column(name = "body", nullable = false)
+	private String body;
 
 	public Langue() {
 	}
 
-	public int getIdLangue() {
-		return idLangue;
+	public int getIdLanguage() {
+		return idLanguage;
 	}
 
-	public void setIdLangue(int idLangue) {
-		this.idLangue = idLangue;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDetails() {
-		return details;
-	}
-
-	public void setDetails(String details) {
-		this.details = details;
+	public void setIdLanguage(int idLanguage) {
+		this.idLanguage = idLanguage;
 	}
 
 	public Collection<CurriculumVitae> getIdCv() {
@@ -70,5 +54,20 @@ public class Langue {
 		this.idCv = idCv;
 	}
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+	}
 
 }

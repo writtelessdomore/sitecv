@@ -1,6 +1,6 @@
 package com.SiteCV.domain;
 
-import java.sql.Blob;
+import java.sql.Date;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -28,17 +28,29 @@ public class User {
 	@Null
 	private Collection<CurriculumVitae> idCv;
 
-	@Column(name = "nom", nullable = false)
-	private String nom;
+	@Column(name = "name", nullable = false)
+	private String name;
 
-	@Column(name = "prenom", nullable = false)
-	private String prenom;
+	@Column(name = "lastname", nullable = false)
+	private String lastname;
 
-	@Column(name = "type_user", nullable = false)
-	private String typeUser;
+	@Column(name = "date_of_birth", nullable = false)
+	private Date dateOfBirth;
+
+	@Column(name = "job", nullable = false)
+	private String job;
+
+	@Column(name = "user_type", nullable = false)
+	private String userType;
 
 	@Column(name = "photo", nullable = false)
-	private Blob photo;
+	private String photo;
+
+	@Column(name = "login", nullable = false)
+	private String login;
+
+	@Column(name = "password", nullable = false)
+	private String password;
 
 	public User() {
 
@@ -52,44 +64,76 @@ public class User {
 		this.idUser = idUser;
 	}
 
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
-
-	public String getTypeUser() {
-		return typeUser;
-	}
-
-	public void setTypeUser(String typeUser) {
-		this.typeUser = typeUser;
-	}
-
-	public Blob getPhoto() {
-		return photo;
-	}
-
-	public void setPhoto(Blob photo) {
-		this.photo = photo;
-	}
-
 	public Collection<CurriculumVitae> getIdCv() {
 		return idCv;
 	}
 
 	public void setIdCv(Collection<CurriculumVitae> idCv) {
 		this.idCv = idCv;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getJob() {
+		return job;
+	}
+
+	public void setJob(String job) {
+		this.job = job;
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

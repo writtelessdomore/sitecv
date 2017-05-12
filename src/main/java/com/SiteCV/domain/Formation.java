@@ -26,21 +26,21 @@ public class Formation {
 	private int idFormation;
 
 	@ManyToMany
-	@JoinTable(name = "curriculum_vitae", joinColumns = @JoinColumn(name = "id_formation", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = false))
+	@JoinTable(name = "curriculum_vitae", joinColumns = @JoinColumn(name = "id_formation", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true))
 	@Null
 	private Collection<CurriculumVitae> idCv;
 
-	@Column(name = "date_debut", nullable = false)
-	private Date dateDebut;
+	@Column(name = "start_date", nullable = false)
+	private Date startDate;
 
-	@Column(name = "date_fin", nullable = false)
-	private Date dateFin;
+	@Column(name = "end_date", nullable = false)
+	private Date endDate;
 
-	@Column(name = "titre", nullable = false)
-	private String titre;
+	@Column(name = "title", nullable = false)
+	private String title;
 
-	@Column(name = "description", nullable = false)
-	private String description;
+	@Column(name = "body", nullable = false)
+	private String body;
 
 	public Formation() {
 
@@ -54,39 +54,6 @@ public class Formation {
 		this.idFormation = idFormation;
 	}
 
-	public Date getDateDebut() {
-		return dateDebut;
-	}
-
-	public void setDateDebut(Date dateDebut) {
-		this.dateDebut = dateDebut;
-	}
-
-	public Date getDateFin() {
-		return dateFin;
-	}
-
-	public void setDateFin(Date dateFin) {
-		this.dateFin = dateFin;
-	}
-
-	public String getTitre() {
-		return titre;
-	}
-
-	public void setTitre(String titre) {
-		this.titre = titre;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
 	public Collection<CurriculumVitae> getIdCv() {
 		return idCv;
 	}
@@ -94,4 +61,37 @@ public class Formation {
 	public void setIdCv(Collection<CurriculumVitae> idCv) {
 		this.idCv = idCv;
 	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+
 }

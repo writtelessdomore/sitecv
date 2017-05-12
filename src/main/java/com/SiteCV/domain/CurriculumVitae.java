@@ -14,7 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Null;
 
-
 @Entity
 @Table(name = "curriculum_vitae")
 public class CurriculumVitae {
@@ -24,28 +23,33 @@ public class CurriculumVitae {
 	@Column(name = "id_curriculum_vitae")
 	private int idCurriculumVitae;
 
-	@Column(name = "divers", nullable = false)
-	private String divers;
+	@Column(name = "various", nullable = false)
+	private String various;
 
 	@ManyToMany
-	@JoinTable(name = "formation", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_formation", nullable = false))
+	@JoinTable(name = "formation", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_formation", nullable = true))
 	@Null
 	private Collection<Formation> idFormation;
 
 	@ManyToMany
-	@JoinTable(name = "expertise", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_expertise", nullable = false))
+	@JoinTable(name = "expertise", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_expertise", nullable = true))
 	@Null
 	private Collection<Expertise> idExpertise;
 
 	@ManyToMany
-	@JoinTable(name = "langue", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_langue", nullable = false))
+	@JoinTable(name = "language", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_language", nullable = true))
 	@Null
 	private Collection<Langue> idLangue;
 
 	@ManyToMany
-	@JoinTable(name = "user", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_user", nullable = false))
+	@JoinTable(name = "user", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_user", nullable = true))
 	@Null
 	private Collection<User> idUser;
+	
+	@ManyToMany
+	@JoinTable(name = "experiments", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_experiments", nullable = true))
+	@Null
+	private Collection<User> idExperiments;
 
 	public CurriculumVitae() {
 	}
@@ -58,12 +62,12 @@ public class CurriculumVitae {
 		this.idCurriculumVitae = idCurriculumVitae;
 	}
 
-	public String getDivers() {
-		return divers;
+	public String getVarious() {
+		return various;
 	}
 
-	public void setDivers(String divers) {
-		this.divers = divers;
+	public void setVarious(String divers) {
+		this.various = divers;
 	}
 
 	public Collection<Formation> getIdFormation() {
@@ -97,4 +101,13 @@ public class CurriculumVitae {
 	public void setIdUser(Collection<User> idUser) {
 		this.idUser = idUser;
 	}
+
+	public Collection<User> getIdExperiments() {
+		return idExperiments;
+	}
+
+	public void setIdExperiments(Collection<User> idExperiments) {
+		this.idExperiments = idExperiments;
+	}
+	
 }

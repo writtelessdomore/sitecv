@@ -34,7 +34,7 @@ public class LangueController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public Langue updateLangue(@PathVariable(value = "id") int id, @RequestBody Langue Langue) {
-		Langue.setIdLangue(id);
+		Langue.setIdLanguage(id);
 		return this.LangueService.updateLangue(Langue);
 	}
 

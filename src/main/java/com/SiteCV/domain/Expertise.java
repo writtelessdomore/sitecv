@@ -25,15 +25,15 @@ public class Expertise {
 	private int idExpertise;
 
 	@ManyToMany
-	@JoinTable(name = "curriculum_vitae", joinColumns = @JoinColumn(name = "id_expertise", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = false))
+	@JoinTable(name = "curriculum_vitae", joinColumns = @JoinColumn(name = "id_expertise", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true))
 	@Null
 	private Collection<CurriculumVitae> idCv;
 
 	@Column(name = "titre", nullable = false)
 	private String title;
 
-	@Column(name = "corps", nullable = false)
-	private String corps;
+	@Column(name = "body", nullable = false)
+	private String body;
 
 	public Expertise() {
 
@@ -55,12 +55,12 @@ public class Expertise {
 		this.title = title;
 	}
 
-	public String getCorps() {
-		return corps;
+	public String getBody() {
+		return body;
 	}
 
-	public void setCorps(String corps) {
-		this.corps = corps;
+	public void setBody(String corps) {
+		this.body = corps;
 	}
 
 	public Collection<CurriculumVitae> getIdCv() {
