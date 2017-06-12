@@ -31,6 +31,11 @@ public class CurriculumVitaeController {
 	public Collection<CurriculumVitae> getAllCurriculumVitaes() {
 		return this.CurriculumVitaeService.listAllCurriculumVitaes();
 	}		
+	
+	@RequestMapping(value = "/{id}",method = RequestMethod.GET)
+	public CurriculumVitae getById(@PathVariable(value = "id") int id) {
+		return this.CurriculumVitaeService.getCurriculumVitaeById(id);
+	}	
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public CurriculumVitae updateCurriculumVitae(@PathVariable(value = "id") int id, @RequestBody CurriculumVitae CurriculumVitae) {
