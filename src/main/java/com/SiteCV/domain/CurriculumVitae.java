@@ -49,7 +49,7 @@ public class CurriculumVitae {
 	@ManyToMany
 	@JoinTable(name = "experiments", joinColumns = @JoinColumn(name = "id_curriculum_vitae", nullable = true), inverseJoinColumns = @JoinColumn(name = "id_experiments", nullable = true))
 	@Null
-	private Collection<User> xperiments;
+	private Collection<Experiments> experiments;
 
 	public CurriculumVitae() {
 	}
@@ -102,12 +102,12 @@ public class CurriculumVitae {
 		User = user;
 	}
 
-	public Collection<User> getXperiments() {
-		return xperiments;
+	public Collection<Experiments> getXperiments() {
+		return experiments;
 	}
 
-	public void setXperiments(Collection<User> xperiments) {
-		this.xperiments = xperiments;
+	public void setXperiments(Collection<Experiments> experiments) {
+		this.experiments = experiments;
 	}
 
 }
